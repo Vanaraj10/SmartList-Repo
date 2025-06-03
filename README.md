@@ -95,7 +95,14 @@ smartlist/
 - `POST /api/lists/:shareableId/entries` - Submit an entry
 - `GET /api/lists/:shareableId/entries` - Get all entries for a list
 
+### System
+- `GET /` - Health check endpoint
+- `GET /keep-alive` - Keep-alive endpoint (prevents server sleeping)
+
 ## 🎨 Features in Detail
+
+### Keep-Alive System
+The backend includes an automatic keep-alive system that pings the server every 14 minutes to prevent it from sleeping on platforms like Heroku or Render.
 
 ### Smart URL Generation
 Each list gets a unique 8-character shareable ID that's easy to share and remember.
