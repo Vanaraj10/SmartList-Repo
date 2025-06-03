@@ -2,7 +2,7 @@
 class SmartListApp {
     constructor() {
         this.currentListId = null;
-        this.baseURL = 'http://localhost:5000/api';
+        this.baseURL = 'https://smartlist-repo.onrender.com/api'; // Update with your actual API base URL
         this.init();
     }
 
