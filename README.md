@@ -8,6 +8,8 @@ A simple, fast, and reliable web application for creating instant submission lis
 - **Shareable Links** - Generate unique links to share your lists
 - **Real-time Updates** - See submissions as they come in
 - **Duplicate Prevention** - Prevents duplicate roll number submissions
+- **Auto-Cleanup** - Automatically removes lists older than 5 days for database efficiency
+- **Keep-Alive System** - Prevents server sleeping on hosting platforms
 - **Minimal & Aesthetic** - Clean dark theme interface
 - **Mobile Responsive** - Works perfectly on all devices
 
@@ -98,8 +100,16 @@ smartlist/
 ### System
 - `GET /` - Health check endpoint
 - `GET /keep-alive` - Keep-alive endpoint (prevents server sleeping)
+- `POST /admin/cleanup` - Manual database cleanup (removes lists older than 5 days)
 
 ## 🎨 Features in Detail
+
+### Auto-Cleanup System
+The backend automatically deletes lists older than 5 days every day at 2:00 AM to maintain database efficiency. This includes:
+- Automatic deletion of expired lists and their associated entries
+- Daily scheduled cleanup at 2:00 AM
+- Manual cleanup endpoint for administrative purposes
+- Comprehensive logging of cleanup operations
 
 ### Keep-Alive System
 The backend includes an automatic keep-alive system that pings the server every 14 minutes to prevent it from sleeping on platforms like Heroku or Render.
