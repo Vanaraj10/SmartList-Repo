@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartList</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- App Container -->
+    <div id="app">
+        <!-- Home View -->        <div id="home-view" class="view active">
+            <div class="container">
+                <header class="header">
+                    <h1 class="logo">SmartList 📃</h1>
+                    <p class="tagline">Create instant submission lists</p>
+                </header>                <main class="main">
+                    <form id="create-form" class="form">
+                        <div class="form-group">
+                            <label for="title" class="form-label">List Title</label>
+                            <input 
+                                type="text" 
+                                id="title" 
+                                placeholder="e.g., Volunteer work availability"
+                                required
+                                class="input"
+                            >
+                        </div>
+                        <div class="form-group">
+                            <label for="description" class="form-label">Description</label>
+                            <input 
+                                type="text" 
+                                id="description" 
+                                placeholder="e.g., enter your availability for volunteer work" 
+                                required
+                                class="input"
+                            >
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            Create List
+                        </button>
+                    </form>
+                </main>                <div class="instructions">
+                    <h3>How it works:</h3>
+                    <ol>
+                        <li>Create a list with a title and description</li>
+                        <li>Share the generated link with others</li>
+                        <li>Collect name and roll number submissions</li>
+                        <li>View all entries in real-time</li>
+                    </ol>
+                    <p class="note">✨ No sign-up required • Instant sharing • Real-time updates</p>
+                </div>
+
+                <footer class="footer">
+                    <p class="footer-text">
+                        Made by VJ_2303 ❤️
+                    </p>
+                    <p class="footer-credits">
+                        SmartList © 2025 • Simple, Fast, Reliable
+                    </p>
+                </footer>
+            </div>
+        </div>
+
+        <!-- List View -->
+        <div id="list-view" class="view">
+            <div class="container">
+                <header class="list-header">
+                    <button id="back-btn" class="btn btn-ghost">
+                        ← Back
+                    </button>                    <div class="list-info">
+                        <h2 id="list-title" class="list-title"></h2>
+                        <p id="list-description" class="list-description"></p>                        <div class="share-section">
+                            <button id="copy-btn" class="btn btn-secondary">
+                                📋 Copy Share Link
+                            </button>
+                        </div>
+                    </div>
+                </header>
+
+                <main class="main">                    <!-- Quick Submit -->
+                    <section class="submit-section">
+                        <div class="submit-header">
+                            <h3 class="submit-title">Enter your submission</h3>
+                        </div>
+                        <form id="entry-form" class="form">
+                            <div class="form-group">
+                               
+                                <input 
+                                    type="text" 
+                                    id="name" 
+                                    placeholder="Enter your full name" 
+                                    required
+                                    class="input"
+                                >
+                            </div>
+                            <div class="form-group">
+                                <input 
+                                    type="text" 
+                                    id="rollNo" 
+                                    placeholder="Enter your roll number" 
+                                    required
+                                    class="input"
+                                >
+                            </div>
+                            <button type="submit" class="btn btn-primary">
+                                Submit Entry
+                            </button>
+                        </form>
+                    </section>
+
+                    <!-- Entries List -->
+                    <section class="entries-section">
+                        <div class="entries-header">
+                            <h3 class="entries-title">
+                                Submissions (<span id="entry-count">0</span>)
+                            </h3>
+                            <button id="refresh-btn" class="btn btn-ghost btn-icon">
+                                ↻
+                            </button>
+                        </div>
+                        <div id="entries-list" class="entries-list">
+                            <div class="empty-state">
+                                <p>No submissions yet</p>
+                            </div>
+                        </div>
+                    </section>
+                </main>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- Loading Overlay -->
+    <div id="loading-overlay" class="loading-overlay">
+        <div class="spinner"></div>
+    </div>
+
+    <script src="script.js?v=2"></script>
+</body>
+</html>
